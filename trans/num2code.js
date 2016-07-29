@@ -15,14 +15,14 @@ module.exports=function () {
 function numberAction(cmd) {
     switch (cmd) {
         case '1':
-            return currentActionName='init';
+            return 'init';
         case '2':
-            return currentActionName='barcode';
+            return 'barcode';
         case 'q':
             process.exit(0);
             return;
         default:
             console.log(postnet.num2code(cmd));
-            return currentActionName='number'
+            return 'number'
     }
 }

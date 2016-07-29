@@ -168,7 +168,83 @@ describe("code to number", function () {
 describe("init",function () {
    it('should init info',function () {
        let input='1';
-       let result=init.doAction(input);
-       expect(result).toEqual('num2code');
-   })
+       let result=init().doAction(input);
+       expect(result).toEqual('number');
+   });
+    it('should init info',function () {
+        let input='2';
+        let result=init().doAction(input);
+        expect(result).toEqual('barcode');
+    });
+    it('should init info',function () {
+        let input='q';
+        let result=init().doAction(input);
+        expect(result).toEqual('quit');
+    });
+    it('should init info',function () {
+        let input='3';
+        let result=init().doAction(input);
+        expect(result).toEqual(`Error input!`);
+    })
+
+});
+
+describe('num2code',function () {
+    it('should num to code ',function () {
+        let result=num2code().doAction('1');
+        expect(result).toEqual('init');
+    });
+
+    it('should num to code ',function () {
+        let result=num2code().doAction('2');
+        expect(result).toEqual('barcode');
+    });
+
+    it('should num to code ',function () {
+        let result=num2code().doAction('q');
+        expect(result).toEqual('quit');
+    });
+
+    it('should num to code ',function () {
+        let result=num2code().doAction('123456789');
+        expect(result).toEqual('Validation Check:       123456789   ==   |:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|\n'+
+        'cd is 5');
+    });
+
+    it('should num to code ',function () {
+        let result=num2code().doAction('1eew');
+        expect(result).toEqual('undefined');
+    });
+
+});
+
+
+describe('code2num',function () {
+    it('should code2num info',function () {
+        let input='1';
+        let result=code2num().doAction(input);
+        expect(result).toEqual('number');
+    });
+    it('should code2num info',function () {
+        let input='2';
+        let result=code2num().doAction(input);
+        expect(result).toEqual('number');
+    });
+    it('should code2num info',function () {
+        let input='q';
+        let result=code2num().doAction(input);
+        expect(result).toEqual('number');
+    });
+    it('should code2num info',function () {
+        let input='| |::|: |:::| ::||: :::|| :||:: ::|:| |    55';
+        let result=code2num().doAction(input);
+        expect(result).toEqual('undefined');
+    });
+    it('should code2num info',function () {
+        let input='| ::||: ::|:| ::|:| ::||: ::|:| |::|: |';
+        let result=code2num().doAction(input);
+        expect(result).toEqual('Validation Check:       | ::||: ::|:| ::|:| ::||: ::|:| |::|: |   ==   32232'+
+        'cd is 8');
+    });
+
 });

@@ -17,14 +17,14 @@ module.exports = function () {
 function initAction(cmd) {
     switch (cmd) {
         case '1':
-            return  currentActionName='number';
+            return 'number';
         case '2':
-            return currentActionName='barcode';
+            return 'barcode';
         case 'q':
             process.exit(0);
             return;
         default:
             console.log(`Error input!`);
-            return   currentActionName='init'
+            return   'init'
     }
 }

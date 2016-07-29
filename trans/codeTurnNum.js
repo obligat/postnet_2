@@ -16,14 +16,14 @@ module.exports=function () {
 function barcodeAction(cmd) {
     switch (cmd) {
         case '1':
-            return currentActionName='init';
+            return 'init';
         case '2':
-            return currentActionName='number';
+            return 'number';
         case 'q':
             process.exit(0);
             return;
         default:
             console.log(postnet.codeTurnNum(cmd));
-            return currentActionName='barcode'
+            return 'barcode'
     }
 }
