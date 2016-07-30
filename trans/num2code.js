@@ -2,15 +2,12 @@
  * Created by dujinqiao on 16-7-29.
  */
 const creatAction=require('./creatAction');
-const postnet=require('./core/postnet');
+const coreNum2Code=require('./core/coreFunction/num2code');
 
-module.exports=function () {
-  return creatAction('number',`
-        Please input barcode like :| |::|: ::|:| ||::: :||:: |::|: :|:|: |
-        
-        1-init 2-numberToBarcode q-quit
-        `.trim(),numberAction);  
-};
+function num2code() {
+    return creatAction('number',`please input a number like 12345 or 123456789 or 12345-1234`.trim(),numberAction);
+}
+
 // let currentActionName = 'init';
 function numberAction(cmd) {
     switch (cmd) {
@@ -22,7 +19,9 @@ function numberAction(cmd) {
             process.exit(0);
             return;
         default:
-            console.log(postnet.num2code(cmd));
+            console.log(coreNum2Code.num2code(cmd));
             return 'number'
     }
 }
+
+module.exports=num2code;

@@ -4,9 +4,12 @@
 
 'use strict';
 
-const postnet = require('./core/postnet');
+// const postnet = require('./core/postnet');
+// const coreNum2Code=require('./core/coreFunction/num2code');
+// const coreCode2Num=require('./core/coreFunction/codeTurnNum');
+
 const init = require('./init');
-const num2code = require('./num2code');
+const num2 = require('./num2code');
 const codeTurnNum = require('./codeTurnNum');
 const repl=require('repl');
 
@@ -120,7 +123,7 @@ var replServer = repl.start({prompt: "> ", eval: handleCmd});
 
 let actions = [
     init(),
-    num2code(),
+    num2(),
     codeTurnNum()
 ];
 

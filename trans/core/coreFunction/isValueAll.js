@@ -1,11 +1,8 @@
-
-
-
-
-
-
-
-function isValueAll(input) {
+/**
+ * Created by dujinqiao on 16-7-30.
+ */
+class isValueAll{
+    static isValueAll(input) {
     let bool = false;
     if (isValue(input)) {
         if (hasFrame(input)) {
@@ -16,6 +13,8 @@ function isValueAll(input) {
         }
     }
     return bool;
+}
+
 }
 function isValue(input) {
     let bool = true;
@@ -36,17 +35,6 @@ function hasFrame(barcode) {
     return bool;
 }
 
-function isFiveLength2(input) {
-    let bool = true;
-    let arr = input.split(' ');
-    for (let i of arr) {
-        if (i.length !== 5) {
-            bool = false;
-        }
-    }
-    return bool;
-}
-
 function isFiveLength(input) {
     return input.split(' ').filter((v, k, arr)=> {
         return k > 0 && k < arr.length - 1;
@@ -54,17 +42,4 @@ function isFiveLength(input) {
 }
 
 
-
-
-
-
-module.exports = {
-    isValue1: isValue1,
-    addACode: addACode,
-    matchCode: matchCode,
-    num2code: num2code,
-    isValueAll: isValueAll,
-    splitCode: splitCode,
-    matchNum: matchNum,
-    codeTurnNum: codeTurnNum
-};
+module.exports=isValueAll;

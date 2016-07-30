@@ -3,16 +3,18 @@
  */
 
 const creatAction = require('./creatAction');
+// const  initAction=require('./initClass');
 
-module.exports = function () {
-    return creatAction('init', `
+    function initView () {
+        return creatAction('init', `
             welcome
         1-number to barcode
         2-barcode to number
         q-quit
         `.trim(), initAction);
-};
-// let currentActionName = 'init';
+
+
+}
 
 function initAction(cmd) {
     switch (cmd) {
@@ -27,4 +29,9 @@ function initAction(cmd) {
             console.log(`Error input!`);
             return   'init'
     }
+
 }
+// let currentActionName = 'init';
+
+
+module.exports = initView;
